@@ -3,7 +3,6 @@
 ## NASTRAN is a finite element analysis (FEA) program that was originally developed for NASA in the late 1960s under United States government funding for the Aerospace industry
 
 # Emma Sherratt March 2015 emma.sherratt@gmail.com
-install.packages(rgl)
 library(rgl)
 
 read.nastran <- function (file){ 
