@@ -28,7 +28,8 @@ plotMultiTangentSpace <- function(A, PCs, groups=NULL, xlabels = c("top", "botto
     stop("Data matrix not a 3D array (see 'arrayspecs').") }
   if(any(is.na(A))==T){
     stop("Data matrix contains missing values. Estimate these first (see 'estimate.missing').") }
-  pcdata <- prcomp(two.d.array(A))$x
+  pca <- prcomp(two.d.array(A))
+  pcdata <- pca$x
   ## multiple PCA plot
   N = PCs # number of PC axes to plot
   M = N-1
@@ -52,8 +53,10 @@ plotMultiTangentSpace <- function(A, PCs, groups=NULL, xlabels = c("top", "botto
     for (j in (i+1):N){
       if(is.null(groups))plot(pcdata[,i], pcdata[,j], pch=21, cex=2, xlab = "", ylab = "", asp=TRUE)
       if(!is.null(groups))plot(pcdata[,i], pcdata[,j], pch=21, cex=2, bg=groups, xlab = "", ylab = "", asp=TRUE)
-      } }
-  labels = c(paste("PC", 2:N) , paste("PC", 1:M))
+    } }
+  
+  labels = c(paste("PC ", 2:N," (",(100*(signif(summary(pca)$importance[2,2:N],2))), "%)", sep="") , 
+             paste("PC ", 1:M," (",(100*(signif(summary(pca)$importance[2,1:M],2))), "%)", sep=""))
   # Place PC labels for y-axis
   par(mar=c(0,0,0,0)) #reset margins
   for(i in 1:(length(labels)/2)) { plot(1, type="n", axes=FALSE, xlab="", ylab="", xlim=c(-1,1), ylim=c(-1,1))
