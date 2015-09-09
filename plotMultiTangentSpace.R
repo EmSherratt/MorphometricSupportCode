@@ -55,8 +55,8 @@ plotMultiTangentSpace <- function(A, PCs, groups=NULL, xlabels = c("top", "botto
       if(!is.null(groups))plot(pcdata[,i], pcdata[,j], pch=21, cex=2, bg=groups, xlab = "", ylab = "", asp=TRUE)
     } }
   
-  labels = c(paste("PC ", 2:N," (",(100*(signif(summary(pca)$importance[2,2:N],2))), "%)", sep="") , 
-             paste("PC ", 1:M," (",(100*(signif(summary(pca)$importance[2,1:M],2))), "%)", sep=""))
+  labels = c(paste("PC ", 2:N," (",(100*(signif(summary(pca)$importance[2,2:N],3))), "%)", sep="") , 
+             paste("PC ", 1:M," (",(100*(signif(summary(pca)$importance[2,1:M],3))), "%)", sep=""))
   # Place PC labels for y-axis
   par(mar=c(0,0,0,0)) #reset margins
   for(i in 1:(length(labels)/2)) { plot(1, type="n", axes=FALSE, xlab="", ylab="", xlim=c(-1,1), ylim=c(-1,1))
