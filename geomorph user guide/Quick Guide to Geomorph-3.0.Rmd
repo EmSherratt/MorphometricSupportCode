@@ -1075,7 +1075,7 @@ res <- procD.lm(shape ~ size)
 ```
 From version 3.0, almost all analytical functions work with the generic functions, `print`/`summary`, and `plot`. Thus following from the above example, using `plot(res)` will return a plot for that function (see ?plot.function.name for more options), and `print(res)` or `summary(res)` will print into the console the results of the analytical function. Other objects retu3rned in the `res` list might be useful for further analyses; see the specific function's manual page for more details. 
 
-------
+
 
 # Covariation methods
 The following methods allow the user to test for relationship between shape and other factors.
@@ -1282,7 +1282,7 @@ summary(PLS) # Test summary
 plot(PLS) # PLS plot
 ```
 
-------
+
 # Morphological Integration methods
 Morphological integration is the tendancy of morphological traits to vary in a coordinated manner, and usually studied through testing the strength of covariation between two or more sets of traits. The related concept, modularity, is when an orgnaism's structure is compartmentalized, and can be analyzed in a variety of ways. *geomorph* presents a few of the recent methods in studing morphological integration and modularity in high-dimensional data. Suggested reading on the subject: Klingenberg 2008, Klingenberg 2014, Mitteroecker & Bookstein 2007 and references therein. 
 
@@ -1385,7 +1385,7 @@ partition.gp
  [1] "1" "1" "1" "1" "1" "2" "2" "2" "2" "2" "2" "2"
 ```
 
-------
+
 # Phylogenetic Comparative methods
 The following methods allow users to take phylogenetic non-independence into account during the analysis of multivariate datasets.
 
@@ -1548,7 +1548,7 @@ The function works in the same manner as `procD.lm`.
 Testing for evolutionary allometry with a D-PGLS approach
 ```{r comment=""}
 data(plethspecies) # example dataset
-Y.gpa<-gpagen(plethspecies$land)    # GPA-alignment    
+Y.gpa<-gpagen(plethspecies$land)    
 gdf <- geomorph.data.frame(shape = Y.gpa$coords, cs = Y.gpa$Csize, 
 phy = plethspecies$phy) # make geomorph data frame
 
@@ -2909,53 +2909,101 @@ coords <- coords[-(47:48),,] # remove the landmarks
 # References
 
 Adams, D. C. 1999. Methods for shape analysis of landmark data from articulated structures. Evol. Ecol. Res. 1:959-970.
+
 Adams, D. C. 2014. A generalized K statistic for estimating phylogenetic signal from shape and other high-dimensional multivariate data. Syst. Biol. 63:685-697.
+
 ---. 2014. A method for assessing phylogenetic least squares models for shape and other high-dimensional multivariate data. Evolution 68:2675-2688.
+
 ---. 2016. Evaluating modularity in morphometric data: Challenges with the RV coefficient and a new test measure. Methods in Ecology and Evolution. (Accepted).
+
 Adams, D. C., and C. D. Anthony. 1996. Using randomization techniques to analyse behavioural data. Anim. Behav. 51:733-738.
+
 Adams, D. C., and M. M. Cerney. 2007. Quantifying biomechanical motion using Procrustes Motion Analysis. J. Biomech. 40:437-444.
+
 Adams, D. C., and M. L. Collyer. 2007. The analysis of character divergence along environmental gradients and other covariates. Evolution 61:510-515.
+
 ---. 2009. A general framework for the analysis of phenotypic trajectories in evolutionary studies. Evolution 63:1143-1154.
+
 Adams, D. C., and R. Felice. 2014. Assessing phylogenetic morphological integration and trait covariation in morphometric data using evolutionary covariance matrices. Plos ONE 9:e94335.
+
 Adams, D. C., and A. Nistri. 2010. Ontogenetic convergence and evolution of foot morphology in European cave salamanders (Family: Plethodontidae). BMC Evol. Biol. 10:216.
+
 Adams, D. C., F. J. Rohlf, and D. E. Slice. 2004. Geometric morphometrics: ten years of progress following the 'revolution'. Italian Journal of Zoology 71:5-16.
+
 Adams, D. C., F. J. Rohlf, and D. E. Slice. 2013. A field comes of age: geometric morphometrics in the 21st century. Hystrix 24:7-14.
+
 Anderson, M. J. 2001. A new method for non-parametric multivariate analysis of variance. Austral. Ecol. 26:32-46.
+
 Anderson, M. J., and C. J. F. terBraak. 2003. Permutation tests for multi-factorial analysis of variance. Journal of Statistical Computation and Simulation 73:85-113.
+
 Blomberg, S. P., T. Garland, and A. R. Ives. 2003. Testing for phylogenetic signal in comparative data: behavioral traits are more labile. Evolution 57:717-745.
+
 Bookstein, F. L. 1991. Morphometric tools for landmark data: geometry and biology. Cambridge Univ. Press,, New York.
+
 Bookstein, F. L. 1997. Shape and the information in medical images: A decade of the morphometric synthesis. Computer Vision and Image Understanding 66:97-118.
+
 ---. 2015. Integration, disintegration, and self-similarity: Characterizing the scales of shape variaiton in landmark data. Evol. Biol.
+
 Bookstein, F. L., P. Gunz, P. Mitteroecker, H. Prossinger, K. Schaefer, and H. Seidler. 2003. Cranial integration in Homo: singular warps analysis of the midsagittal plane in ontogeny and evolution. J. Hum. Evol. 44:167-187.
+
 Claude, J. 2008. Morphometrics with R. Springer.
+
 Collyer, M. L., and D. C. Adams. 2007. Analysis of two-state multivariate phenotypic change in ecological studies. Ecology 88:683-692.
+
 ---. 2013. Phenotypic trajectory analysis: comparison of shape change patterns in evolution and ecology. Hystrix 24:75-83.
+
 Collyer, M. L., D. J. Sekora, and D. C. Adams. 2015. A method for analysis of phenotypic change for phenotypes described by high-dimensional data. Heredity 115:357-365.
+
 Drake, A. G., and C. P. Klingenberg. 2008. The pace of morphological change: historical transformation of skull shape in St Bernard dogs. Proc. R. Soc. B 275:71-76.
+
 Dryden, I. L., and K. V. Mardia. 1993. Multivariate shape analysis. Sankhya 55:460--480.
+
 Good, P. 2000. Permutation tests: a practical guide to resampling methods for testing hypotheses. Springer, New York.
+
 Goodall, C. 1991. Procrustes methods in the statistical analysis of shape. Journal of the Royal Statistical Society. Series B (Methodological):285-339.
+
 Gower, J. C. 1975. Generalized Procrustes analysis. Psychometrika 40:33-51.
+
 Gunz, P., P. Mitterocker, and F. L. Bookstein. 2005. Semilandmarks in three dimensions. Pp. 73-98 in D. E. Slice, ed. Modern morphometrics in physical anthropology. Kluwer Academic/Plenum Publishers, New York.
+
 Gunz, P., P. Mitteroecker, S. Neubauer, G. W. Weber, and F. L. Bookstein. 2009. Principles for the virtual reconstruction of hominin crania. J. Hum. Evol. 57:48-62.
+
 Kendall, D. G. 1984. Shape-manifolds, Procrustean metrics and complex projective spaces. Bulletin of the London Mathematical Society 16:81-121.
+
 Klingenberg, C. P. 2009. Morphometric integration and modularity in configurations of landmarks: tools for evaluating a priori hypotheses. Evol. Dev. 11:405-421.
+
 Klingenberg, C. P., M. Barluenga, and A. Meyer. 2002. Shape analysis of symmetric structures: quantifying variation among individuals and asymmetry. Evolution 56:1909-1920.
+
 Klingenberg, C. P., and N. A. Gidaszewski. 2010. Testing and quantifying phylogenetic signals and homoplasy in morphometric data. Syst. Biol. 59:245-261.
+
 Klingenberg, C. P., and G. S. McIntyre. 1998. Geometric morphometrics of developmental instability: Analyzing patterns of fluctuating asymmetry with procrustes methods. Evolution 52:1363-1375.
+
 Mardia, K. V., F. L. Bookstein, and I. J. Moreton. 2000. Statistical assessment of bilateral symmetry of shapes. Biometrika 87:285-300.
+
 Mitteroecker, P., and P. Gunz. 2009. Advances in geometric morphometrics. Evol. Biol. 36:235-247.
+
 Mitteroecker, P., P. Gunz, M. Bernhard, K. Schaefer, and F. L. Bookstein. 2004. Comparison of cranial ontogenetic trajectories among great apes and humans. J. Hum. Evol. 46:679-697.
+
 O'Higgins, P., and N. Jones. 1998. Facial growth in Cercocebus torquatus: an application of three-dimensional geometric morphometric techniques to the study of morphological variation. J. Anat. 193:251-272.
+
 Revell, L. J. 2012. phytools: an R package for phylogenetic comparative biology (and other things). Methods in Ecology and Evolution 3:217-223.
+
 Rohlf, F. J. 1998. On applications of geometric morphometrics to studies of ontogeny and phylogeny. Syst. Biol. 47:147-158.
+
 Rohlf, F. J. 1999. Shape statistics: Procrustes superimpositions and tangent spaces. J. Classif. 16:197-223.
+
 Rohlf, F. J. 2002. Geometric morphometrics and phylogeny. Pp. 175-193 in N. MacLeod, and P. L. Forey, eds. Morphology, shape and phylogeny. Francis & Taylor, London.
+
 ---. 2010. tpsRelw: Relative warp analysis. Version 1.49. Version 1.49. Department of Ecology and Evolution, State University of New York at Stony Brook, Stony Brook, NY.
+
 ---. 2012. NTSYSpc: Numerical taxonomy and multivariate analysis system. Version 2.2. New York: Exeter Software.
+
 Rohlf, F. J., and M. Corti. 2000. Use of two-block partial least-squares to study covariation in shape. Syst. Biol. 49:740-753.
+
 Rohlf, F. J., and L. F. Marcus. 1993. A revolution in morphometrics. Trends Ecol. Evol. 8:129-132.
+
 Rohlf, F. J., and D. Slice. 1990. Extensions of the Procrustes method for the optimal superimposition of landmarks. Syst. Zool. 39:40-59.
+
 Zelditch, M. L., D. L. Swiderski, and H. D. Sheets. 2012. Geometric morphometrics for biologists: a primer. 2nd ed. Elsevier, Amsterdam.
 
 
