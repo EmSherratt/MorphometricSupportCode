@@ -11,13 +11,14 @@
 #' @param outline A p-x-k matrix of 2D or 3D coordinates for a set of ordered points defining an outline
 #' @param landmarks A p-x-k matrix of 2D or 3D coordinates for the landmarks along the outline
 #' @param closed Logical Whether the outline is closed (TRUE) or open (FALSE)
+#' @param plot Logical Whether to plot the curves (TRUE) or not (FALSE)
 #' @return Function returns a list, where each item in the list is a p-x-k matrix of 2D or 3D coordinates for the ordered points defining one segment (curve) between two landmarks
 #' @seealso \code{\link{digit.curves}}
 #' @export
 #' @keywords digitizing, utilities
 #' @author Emma Sherratt
 
-outline2curves <- function(outline, landmarks, closed=TRUE){
+outline2curves <- function(outline, landmarks, closed=TRUE, plot=TRUE){
   checkmat <- is.matrix(outline)
   if (checkmat==FALSE) {stop("Input must be a p-x-k matrix of outline coordinates")}
   p = dim(landmarks)[1]
@@ -45,14 +46,14 @@ outline2curves <- function(outline, landmarks, closed=TRUE){
     for(i in 1:(p-1)){
       curves[[i]] <- outline[c(nodes[i]:nodes[i+1]),] }  
   }
-  if (checkdim==2) { 
+  if (checkdim==2 && plot==TRUE) { 
     plot(outline, asp=TRUE, pch=19, cex=0.1)
     cols <- rainbow(length(curves))
     for(i in 1:length(curves)){points(curves[[i]], pch=19, col=cols[i])}
     points(landmarks, pch=19, col="black", cex=1)
     legend(0, legend=c(1:length(curves)), pch=19, col=cols)
   }
-  if (checkdim==3) { 
+  if (checkdim==3&& plot==TRUE) { 
     plot3d(outline, asp=TRUE, pch=19, cex=0.1)
     cols <- rainbow(length(curves))
     for(i in 1:length(curves)){points3d(curves[[i]], pch=19, col=cols[i])}
